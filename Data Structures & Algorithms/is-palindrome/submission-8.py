@@ -1,0 +1,15 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        s = "".join(s.replace(" ", "").lower())
+        print(s)
+        n = len(s)
+        l, r = 0, n-1
+        while l<r:
+            while l<r and not str.isalnum(s[l]):
+                l+=1
+            while r>l and not str.isalnum(s[r]):
+                r-=1
+            if s[l] != s[r]:
+                return False
+            l, r = l+1, r-1
+        return True
